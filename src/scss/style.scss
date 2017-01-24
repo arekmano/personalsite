@@ -1,0 +1,22 @@
+@import 'bootstrap.scss';
+@import 'navbar.scss';
+
+body {
+  margin:0;
+  color: white;
+  background-color: #1D1F20;
+}
+
+.title {
+  font-size: 40pt;
+  font-family: sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+.content {
+  @extend .col-sm-10;
+  @extend .col-sm-offset-1;
+  @extend .col-xs-12;
+  margin-top: 16px;
+}
