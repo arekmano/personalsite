@@ -1,6 +1,6 @@
 $nav-height: 3em;
 $nav-color: #bbb;
-$nav-background: #2e2e2e;
+$nav-background: opacify($navBarColor, 0.45);
 
 
 .navbar-fixed {
@@ -14,19 +14,30 @@ nav {
   background: $nav-background;
   font-weight: bold;
   letter-spacing: 0.025em;
-  z-index: 50000;
   ul {
     text-align: center;
     margin: 0;
+    padding: 0;
     li {
       display: inline-block;
-      padding: 0 3em;
       line-height: 3em;
       a {
+        padding: 1em 3em;
         color: inherit;
         text-decoration: inherit;
+        &.active {
+          color: white;
+        }
         &:hover {
           color: white;
+          text-decoration: inherit;
+        }
+        &:active {
+          color: white;
+          text-decoration: inherit;
+        }
+        &:visited {
+          text-decoration: inherit;
         }
       }
     }

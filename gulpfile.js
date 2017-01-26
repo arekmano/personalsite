@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    concat = require('gulp-concat'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -7,8 +8,9 @@ var gulp = require('gulp'),
     header  = require('gulp-header'),
     rename = require('gulp-rename'),
     cssnano = require('gulp-cssnano'),
-    package = require('./package.json');
-
+    package = require('./package.json'),
+    ngAnnotate = require('gulp-ng-annotate'),
+    mainBowerFiles = require('main-bower-files');
 
 var banner = [
   '/*!\n' +
@@ -34,7 +36,9 @@ gulp.task('css', function() {
 });
 
 gulp.task('js',function(){
-  gulp.src('src/js/scripts.js')
+  gulp.src(mainBowerFiles().concat('src/js/**/*.js'))
+    .pipe(ngAnnotate())
+    .pipe(concat('bundle.js'))
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(header(banner, { package : package }))
@@ -59,6 +63,6 @@ gulp.task('bs-reload', function () {
 
 gulp.task('default', ['css', 'js', 'browser-sync'], function () {
     gulp.watch("src/scss/*.scss", ['css']);
-    gulp.watch("src/js/*.js", ['js']);
+    gulp.watch("src/js/**/*.js", ['js']);
     gulp.watch("app/*.html", ['bs-reload']);
 });

@@ -1,0 +1,31 @@
+.project-type {
+  padding: 6px;
+  border: none;
+  background-color: white;
+  border-radius: 1px;
+  border-color: darkgray;
+  border-style: solid;
+  color: darkgray;
+  border-radius: 4px;
+  &.active {
+    background-color: darkgray;
+    color: white;
+  }
+  &:hover {
+    background-color: #dadada;
+  }
+}
+.card-holder {
+  @extend .col-lg-3;
+  @extend .col-md-4;
+  @extend .col-sm-6;
+  @extend .col-xs-12;
+}
+.card {
+  border-color: white;
+  border-style: solid;
+  box-shadow: 0px 1px 2px 1px #909090;
+  padding: 12px 0px;
+  border-radius: 2px;
+  margin: 6px 0px;
+}
