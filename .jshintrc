@@ -20,6 +20,7 @@
   "trailing": false,
   "smarttabs": true,
   "globals" : {
-    "Modernizr": true
+    "Modernizr": true,
+    "angular": true
   }
 }

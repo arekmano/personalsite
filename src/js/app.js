@@ -1,6 +1,8 @@
+'use strict';
+
 angular.module(
   'PersonalApp',
-  ['sticky', 'ui.router']
+  ['sticky', 'ui.router', 'ngMaterial']
 ).config(function($stateProvider) {
   $stateProvider
     .state({
@@ -18,5 +20,5 @@ angular.module(
     url: '/projects',
     controller: 'ProjectController',
     templateUrl: 'projects.html'
-  })
+  });
 });
