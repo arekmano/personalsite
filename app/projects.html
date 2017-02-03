@@ -1,7 +1,18 @@
 PROJECTS
-<div class="col-xs-12">
-  <button class="project-type">All</button>
-  <button class="project-type">Open Source</button>
-  <button class="project-type">Privacy</button>
-  <button class="project-type">Tools</button>
+<div>
+  <button class="project-type" ng-repeat="category in vm.categories">{{category}}</button>
+</div>
+<div layout="row">
+<div flex-xs flex-gt-xs="50" layout="column">
+<md-card ng-repeat="project in vm.projects1">
+  <md-card-title><span class="md-headline">{{project.name}}</span></md-card-title>
+  <md-card-content>{{project.description}}</md-card-content>
+</md-card>
+</div>
+<div flex-xs flex-gt-xs="50" layout="column">
+<md-card ng-repeat="project in vm.projects2">
+  <md-card-title><span class="md-headline">{{project.name}}</span></md-card-title>
+  <md-card-content>{{project.description}}</md-card-content>
+</md-card>
+</div>
 </div>

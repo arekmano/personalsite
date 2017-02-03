@@ -9,14 +9,12 @@
     <link href="assets/css/style.css" rel="stylesheet">
   </head>
   <body ng-app="PersonalApp">
-    <div class="col-md-12">
-      <div class="col-md-4">
-        </div>
-      <header class="col-md-12">
+    <div>
+      <header>
       <h1 class="title">Arek Mano</h1>
       </header>
     </div>
-    <div class="col-md-12 no-spacing">
+    <div class=" no-spacing">
       <nav id="navbar" sticky>
         <ul>
           <li><a ui-sref="about" ui-sref-active="active">&lt;About/&gt;</a></li>
@@ -25,8 +23,8 @@
         </ul>
       </nav>
     </div>
-    <ui-view class="content">
-    </ui-view>
+    <md-content ui-view class="content">
+    </md-content>
   </div>
   <footer class="footer" role="contentinfo">
   <div>Written by Me</div>
