@@ -1,26 +1,48 @@
 'use strict';
 
-angular.module('PersonalApp').controller('ProjectController', function(){
-var vm = this;
-vm.categories = ['All', 'Open Source', 'Privacy', 'Tools']
-vm.projects = [
-  {
-    name: 'PersonalCanary',
-    description: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
-    category: 'Privacy'
-  },
-  {
-    name: 'PersonalCanaryUI',
-    description: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
-    category: 'Privacy'
-  },
-  {
-    name: 'EncryptoBox',
-    description: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum  as',
-    category: 'Security'
-  }
-];
+angular.module('PersonalApp').controller('ProjectController', function(ProjectService){
+  var vm = this;
+  vm.categoryOptions = [
+    {
+      name: 'All',
+      selected: true,
+      categories: ['Open Source', 'Privacy', 'Tools', 'Security']
+    },
+    {
+      name: 'Open Source',
+      selected: false,
+      categories: ['Open Source']
+    },
+    {
+      name: 'Privacy',
+      selected: false,
+      categories: ['Privacy']
+    },
+    {
+      name: 'Security',
+      selected: false,
+      categories: ['Security']
+    },
+    {
+      name: 'Tools',
+      selected: false,
+      categories: ['Tools']
+    }
+  ];
 
-vm.projects1 = vm.projects.slice(0, vm.projects.length / 2 + 1);
-vm.projects2 = vm.projects.slice(vm.projects.length / 2 + 1, vm.projects.length);
+  vm.splitProjects = function(){
+    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length / 2) + 1);
+    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length / 2) + 1, ProjectService.projects.length);
+  };
+
+  vm.clickCategory = function(category){
+    angular.forEach(vm.categoryOptions, function(cat){
+      cat.selected = false;
+    });
+    category.selected = true;
+    ProjectService.refreshProjects(category);
+    vm.splitProjects();
+  };
+  ProjectService.refreshProjects(vm.categoryOptions[0]);
+  vm.splitProjects();
 });

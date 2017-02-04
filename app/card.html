@@ -1,0 +1,20 @@
+<md-card>
+  <md-card-title><span class="md-headline">{{project.name}}</span></md-card-title>
+  <md-card-content layout="row">
+    <span>
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg" style="max-height: 200px;max-width: 200px;" alt="">
+    </span>
+    <span class="project-description" flex>{{project.description}}</span>
+    <span>{{project.category}}</span>
+</md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <button class="themed" layout="row" layout-align="center center">
+      <span>Source</span>
+      <img src="assets/img/ic_code_black_24px.svg" alt="">
+    </button>
+    <button class="themed accent" layout="row" layout-align="center center">
+      <span class="button-text">Demo</span>
+      <img src="assets/img/ic_open_in_new_black_24px.svg" alt="">
+    </button>
+  </md-card-actions>
+</md-card>
