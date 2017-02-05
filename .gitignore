@@ -2,3 +2,4 @@ app/assets/js/
 app/assets/css/
 node_modules/
 bower_components/
+src/js/.templates.js

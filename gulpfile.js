@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     cssnano = require('gulp-cssnano'),
     package = require('./package.json'),
+    templateCache = require('gulp-angular-templatecache'),
     addsrc = require('gulp-add-src'),
     ngAnnotate = require('gulp-ng-annotate'),
     mainBowerFiles = require('main-bower-files');
@@ -48,6 +49,7 @@ gulp.task('js',function(){
     'bower_components/angular-ui-router/release/angular-ui-router.js',
     'bower_components/ngSticky/lib/sticky.js',
     'src/js/app.js',
+    'src/js/.templates.js',
     'src/js/*/*.js',
   ]).pipe(ngAnnotate())
     .pipe(concat('bundle.js'))
@@ -73,12 +75,20 @@ gulp.task('browser-sync', function() {
         }
     });
 });
+
+gulp.task('template', function () {
+  return gulp.src('src/templates/*.html')
+    .pipe(templateCache('.templates.js'))
+    .pipe(gulp.dest('src/js'));
+});
+
 gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('default', ['css', 'js', 'browser-sync'], function () {
+gulp.task('default', ['css', 'template', 'js', 'jshint', 'browser-sync'], function () {
     gulp.watch("src/scss/*.scss", ['css']);
     gulp.watch("src/js/**/*.js", ['js', 'jshint']);
-    gulp.watch("app/*.html", ['bs-reload']);
+    gulp.watch("src/*.html", ['bs-reload']);
+    gulp.watch("src/templates/*.html", ['template', 'js']);
 });
