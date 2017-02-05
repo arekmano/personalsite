@@ -6,7 +6,7 @@ angular.module('PersonalApp').controller('ProjectController', function(ProjectSe
     {
       name: 'All',
       selected: true,
-      categories: ['Open Source', 'Privacy', 'Tools', 'Security']
+      categories: ['Open Source', 'Privacy', 'Library', 'Security']
     },
     {
       name: 'Open Source',
@@ -24,15 +24,15 @@ angular.module('PersonalApp').controller('ProjectController', function(ProjectSe
       categories: ['Security']
     },
     {
-      name: 'Tools',
+      name: 'Library',
       selected: false,
-      categories: ['Tools']
+      categories: ['Library']
     }
   ];
 
   vm.splitProjects = function(){
-    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length / 2) + 1);
-    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length / 2) + 1, ProjectService.projects.length);
+    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
+    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length  + 1 ) / 2, ProjectService.projects.length);
   };
 
   vm.clickCategory = function(category){

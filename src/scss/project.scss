@@ -11,12 +11,9 @@ button.themed {
     background-color: #20b795;
     color: white;
   }
-  &.active {
-    background-color: darkgray;
-    color: white;
-  }
   &:hover {
-    background-color: #e8e8e8;
+    background-color: #177d66;
+    color: white;
   }
 }
 .project-description {
