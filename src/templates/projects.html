@@ -1,11 +1,13 @@
 <div>
-  <button class="themed" ng-class="{'accent': category.selected}" ng-click="vm.clickCategory(category)" ng-repeat="category in vm.categoryOptions">{{category.name}}</button>
-</div>
-<div layout="row">
-<div flex-xs flex-gt-xs="50" layout="column">
-  <card ng-repeat="project in vm.projects1"></card>
-</div>
-<div flex-xs flex-gt-xs="50" layout="column">
-  <card ng-repeat="project in vm.projects2"></card>
-</div>
+  <div>
+    <button class="themed" ng-class="{'accent': category.selected}" ng-click="vm.clickCategory(category)" ng-repeat="category in vm.categoryOptions">{{category.name}}</button>
+  </div>
+  <div layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <card class="project-card" ng-repeat="project in vm.projects1"></card>
+    </div>
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <card class="project-card"  ng-show="project.show" ng-repeat="project in vm.projects"></card>
+    </div>
+  </div>
 </div>

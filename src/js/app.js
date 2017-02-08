@@ -3,8 +3,8 @@
 angular.module('templates', []);
 angular.module(
   'PersonalApp',
-  ['sticky', 'ui.router', 'ngMaterial', 'templates']
-).config(function($stateProvider) {
+  ['sticky', 'ui.router', 'ngMaterial', 'templates', 'ngAnimate']
+).config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state({
     name: 'about',
@@ -25,4 +25,5 @@ angular.module(
     controllerAs: 'vm',
     templateUrl: 'projects.html'
   });
+  $urlRouterProvider.otherwise('/about');
 });

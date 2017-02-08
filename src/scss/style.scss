@@ -25,3 +25,12 @@ $darkColor: #1D1F20;
   margin: 0;
   padding: 0;
 }
+.content.ng-enter {
+  animation: bounceInLeft 1s;
+}
+.content.ng-leave {
+  animation: bounceOutRight 1s;
+}
+.no-flow {
+  overflow-x: hidden;
+}
