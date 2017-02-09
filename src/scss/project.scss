@@ -22,9 +22,10 @@ button.themed {
 .button-text {
   margin-right: 3px;
 }
-.project-card {
-  animation: fadeIn 0.2s;
-  }
-.project-card.ng-hide {
-  animation: fadeOut 0.2s;
+.tech-icon {
+  font-size: 70px;
+  z-index: 1;
+}
+h3 {
+  color: white;
 }

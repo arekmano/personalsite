@@ -2,15 +2,39 @@
   <md-card-title><span class="md-headline">{{project.name}}</span></md-card-title>
   <md-card-content layout="row">
     <span>
-      <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg" style="max-height: 200px;max-width: 200px;" alt="">
+      <img src="{{project.imageURL || '#'}}" ng-if="project.imageURL" style="max-height: 300px;max-width: 200px;" alt="">
     </span>
-    <span class="project-description" flex>{{project.description}}</span>
-    <span>{{project.category}}</span>
+    <span layout="column" class="project-description">
+      <div layout="column">
+       <h2 flex>Description:</h2>
+       <span flex>{{project.description}}</span>
+      </div>
+      <div layout="column">
+        <h2>Technologies:</h2>
+        <md-grid-list
+          md-cols="3" md-row-height="4:3">
+          <md-grid-tile  md-rowspan="1"
+               md-colspan="1"
+               md-colspan-sm="1"
+               md-colspan-xs="1"
+               ng-repeat="technology in project.technologies">
+              <i class="tech-icon" ng-class="technology.iconName"></i>
+            <md-grid-tile-footer class="tech-name" layout="row" layou-align="center center">
+              <div>{{technology.name}}</div>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+        </md-grid-list>
+        </div>
+      <div layout="column">
+        <h2>Categories:</h2>
+        <span ng-repeat="category in project.categories">{{category}}</span>
+      </div>
+    </span>
 </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
     <button class="themed" layout="row" layout-align="center center">
-      <span>Source</span>
-      <img src="assets/img/ic_code_black_24px.svg" alt="">
+      <span class="button-text">Source</span>
+      <i class="devicon-github-plain"></i>
     </button>
     <button class="themed accent" layout="row" layout-align="center center">
       <span class="button-text">Demo</span>

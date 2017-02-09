@@ -31,7 +31,6 @@ angular.module('PersonalApp').controller('ProjectController', function(ProjectSe
   ];
 
   vm.splitProjects = function(){
-    vm.projects = ProjectService.projects
     vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
     vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length  + 1 ) / 2, ProjectService.projects.length);
   };

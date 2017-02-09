@@ -31,6 +31,7 @@ gulp.task('css', function() {
     .pipe(autoprefixer('last 4 version'))
     .pipe(addsrc('bower_components/angular-material/angular-material.css'))
     .pipe(addsrc('bower_components/animate.css/animate.css'))
+    .pipe(addsrc('bower_components/devicon/devicon.css'))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('app/assets/css'))
     .pipe(cssnano())
