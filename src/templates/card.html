@@ -27,7 +27,9 @@
         </div>
       <div layout="column">
         <h2>Categories:</h2>
-        <span ng-repeat="category in project.categories">{{category}}</span>
+        <md-chips ng-model="project.categories" readonly="true" removable="false">
+          <md-chip-template>{{$chip.name}}</md-chip-template>
+        </md-chips>
       </div>
     </span>
 </md-card-content>

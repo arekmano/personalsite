@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     cssnano = require('gulp-cssnano'),
     package = require('./package.json'),
+    reverse = require('reversible'),
     templateCache = require('gulp-angular-templatecache'),
     addsrc = require('gulp-add-src'),
     ngAnnotate = require('gulp-ng-annotate'),
@@ -32,6 +33,7 @@ gulp.task('css', function() {
     .pipe(addsrc('bower_components/angular-material/angular-material.css'))
     .pipe(addsrc('bower_components/animate.css/animate.css'))
     .pipe(addsrc('bower_components/devicon/devicon.css'))
+    .pipe(reverse({ objectMode: true }))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('app/assets/css'))
     .pipe(cssnano())

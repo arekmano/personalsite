@@ -1,34 +1,8 @@
 'use strict';
 
-angular.module('PersonalApp').controller('ProjectController', function(ProjectService){
+angular.module('PersonalApp').controller('ProjectController', function(ProjectService, Category){
   var vm = this;
-  vm.categoryOptions = [
-    {
-      name: 'All',
-      selected: true,
-      categories: ['Open Source', 'Privacy', 'Library', 'Security']
-    },
-    {
-      name: 'Open Source',
-      selected: false,
-      categories: ['Open Source']
-    },
-    {
-      name: 'Privacy',
-      selected: false,
-      categories: ['Privacy']
-    },
-    {
-      name: 'Security',
-      selected: false,
-      categories: ['Security']
-    },
-    {
-      name: 'Library',
-      selected: false,
-      categories: ['Library']
-    }
-  ];
+  vm.categoryOptions = Category.all;
 
   vm.splitProjects = function(){
     vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
@@ -43,6 +17,6 @@ angular.module('PersonalApp').controller('ProjectController', function(ProjectSe
     ProjectService.refreshProjects(category);
     vm.splitProjects();
   };
-  ProjectService.refreshProjects(vm.categoryOptions[0]);
+  ProjectService.refreshProjects(vm.categoryOptions.all);
   vm.splitProjects();
 });

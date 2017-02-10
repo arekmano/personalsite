@@ -23,7 +23,8 @@
     "gulp-sass": "^2.1.1",
     "gulp-uglify": "^1.5.1",
     "jshint": "^2.8.0",
-    "main-bower-files": "^2.13.1"
+    "main-bower-files": "^2.13.1",
+    "reversible": "^0.1.0"
   },
   "dependencies": {
     "gulp-add-src": "^0.2.0"

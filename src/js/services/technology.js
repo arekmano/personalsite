@@ -4,11 +4,11 @@ angular.module('PersonalApp').factory('Technology', function(){
   var technologies = {
     rubyOnRails: {
       name: 'Ruby on Rails',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-rails-plain'
     },
     mariaDb: {
       name: 'MariaDB',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-mysql-plain'
     },
     angularJs: {
       name: 'AngularJS',
@@ -16,35 +16,35 @@ angular.module('PersonalApp').factory('Technology', function(){
     },
     html5: {
       name: 'HTML5',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-html5-plain'
     },
     css3: {
       name: 'CSS3',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-css3-plain'
     },
     mongoDb: {
       name: 'MongoDB',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-mongodb-plain'
     },
     nodeJs: {
       name: 'NodeJS',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-nodejs-plain'
     },
     javascript: {
       name: 'Javascript',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-javascript-plain'
     },
     ruby: {
       name: 'Ruby',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-ruby-plain'
     },
     rubyGem: {
       name: 'Ruby Gem',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-ruby-plain'
     },
     mysql: {
       name: 'MySQL',
-      iconName: 'devicon-angularjs-plain'
+      iconName: 'devicon-mysql-plain'
     }
   };
 
