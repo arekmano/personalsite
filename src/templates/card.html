@@ -34,13 +34,13 @@
     </span>
 </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
-    <button class="themed" layout="row" layout-align="center center">
+    <md-button layout="row" layout-align="center center" ng-show="project.sourceURL" ng-href="{{project.sourceURL}}">
       <span class="button-text">Source</span>
       <i class="devicon-github-plain"></i>
-    </button>
-    <button class="themed accent" layout="row" layout-align="center center">
+    </md-button>
+    <md-button class="md-primary md-raised" layout="row" layout-align="center center" ng-show="project.demoURL" ng-href="{{project.demoURL}}">
       <span class="button-text">Demo</span>
       <img src="assets/img/ic_open_in_new_black_24px.svg" alt="">
-    </button>
+    </md-button>
   </md-card-actions>
 </md-card>

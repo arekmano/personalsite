@@ -17,8 +17,9 @@ angular.module('PersonalApp').factory('ProjectService', function(Technology, Cat
         new Technology('html5'),
         new Technology('css3')
       ],
-      imageURL: 'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg',
-      showTech: 'Ruby'
+      imageURL: 'assets/img/personal-canary.png',
+      demoURL: 'https://personal-canary.herokuapp.com',
+      sourceURL: 'https://github.com/arekmano/personalCanary'
     },
     {
       name: 'Crypto Message Box',
@@ -32,7 +33,8 @@ angular.module('PersonalApp').factory('ProjectService', function(Technology, Cat
         new Technology('javascript'),
         new Technology('nodeJs'),
         new Technology('mongoDb')
-      ]
+      ],
+      sourceURL: 'https://github.com/arekmano/CryptoMessageBox'
     },
     {
       name: 'Concordia Course Api',
@@ -45,11 +47,13 @@ angular.module('PersonalApp').factory('ProjectService', function(Technology, Cat
         new Technology('nodeJs'),
         new Technology('javascript')
       ],
-      imageURL: 'assets/img/concordia-course-api.png'
+      imageURL: 'assets/img/concordia-course-api.png',
+      demoURL: 'https://concordia-course-api.herokuapp.com',
+      sourceURL: 'https://github.com/arekmano/ConcordiaCourseApi'
     },
     {
       name: 'Concordia Course Scraper',
-      description: "A simple ruby gem web scraper for extracting course information from Concordia University's web pages.",
+      description: 'A simple ruby gem web scraper for extracting course information from Concordia University\'s web pages.',
       categories: [
         Category.get('openSource'),
         Category.get('library')
@@ -59,7 +63,7 @@ angular.module('PersonalApp').factory('ProjectService', function(Technology, Cat
         new Technology('rubyGem'),
         new Technology('mysql')
       ],
-      imageURL: 'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg'
+      sourceURL: 'https://github.com/arekmano/ConcordiaCourseScraper'
     }
   ];
 
@@ -70,7 +74,7 @@ angular.module('PersonalApp').factory('ProjectService', function(Technology, Cat
         if (category.categories.indexOf(cat.categories[0]) > -1 && visibleProjects.indexOf(project) < 0){
           visibleProjects.push(project);
         }
-      })
+      });
     });
   };
 

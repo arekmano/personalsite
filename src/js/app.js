@@ -8,7 +8,7 @@ angular.module(
   $stateProvider
     .state({
     name: 'about',
-    url: '/about',
+    url: '/',
     controller: 'AboutController',
     controllerAs: 'vm',
     templateUrl: 'about.html'
@@ -25,5 +25,5 @@ angular.module(
     controllerAs: 'vm',
     templateUrl: 'projects.html'
   });
-  $urlRouterProvider.otherwise('/about');
+  $urlRouterProvider.otherwise('/');
 });

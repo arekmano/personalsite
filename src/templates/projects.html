@@ -1,6 +1,6 @@
 <div>
   <div>
-    <button class="themed" ng-class="{'accent': category.selected}" ng-click="vm.clickCategory(category)" ng-repeat="category in vm.categoryOptions">{{category.name}}</button>
+    <md-button class="themed" ng-class="{'md-raised md-primary': category.selected}" ng-click="vm.clickCategory(category)" ng-repeat="category in vm.categoryOptions">{{category.name}}</md-button>
   </div>
   <div layout="row">
     <div flex-xs flex-gt-xs="50" layout="column">

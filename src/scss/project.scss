@@ -30,11 +30,9 @@ h3 {
   color: white;
 }
 figcaption {
-  margin: auto;
+  margin: auto auto 0 auto;
   z-index: 2;
-}
-md-grid-tile-footer {
-  background-color: #82dfca;
+  color: black;
 }
 .accent {
   background-color: #20b795;

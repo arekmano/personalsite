@@ -51,6 +51,7 @@ gulp.task('js',function(){
     'bower_components/angular-messages/angular-messages.js',
     'bower_components/angular-material/angular-material.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
+    'bower_components/progressbar.js/dist/progressbar.js',
     'bower_components/ngSticky/lib/sticky.js',
     'src/js/app.js',
     'src/js/.templates.js',

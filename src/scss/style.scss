@@ -6,6 +6,7 @@ $darkColor: #1D1F20;
 @import 'project.scss';
 @import 'navbar.scss';
 @import 'default.scss';
+@import 'about.scss';
 
 .title {
   font-size: 40pt;
@@ -33,4 +34,11 @@ $darkColor: #1D1F20;
 }
 .no-flow {
   overflow-x: hidden;
+}
+
+[ng-cloak].splash {
+    display: block !important;
+}
+.splash {
+    display: none;
 }
