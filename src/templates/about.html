@@ -1,14 +1,32 @@
 <div>
-  <md-card layout="row">
-    <div class="skills-title">Skills</div>
-    <div class="skills-list" layout="column" flex>
-      <skill ng-repeat="skill in vm.skills"></skill>
-    </div>
+  <md-content layout="row">
+  <md-card flex="30">
+    <img src="https://media.licdn.com/media/p/1/005/08b/016/3f968a3.jpg">
+    <md-card-content>
+      This is me
+    </md-card-content>
   </md-card>
-  <md-card layout="row">
-    <div class="skills-title">Technical Competencies</div>
-    <div class="skills-list" layout="column" flex>
-      <skill ng-repeat="skill in vm.competencies"></skill>
-    </div>
-  </md-card>
+  <div layout="column" flex>
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">About Me</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>I do things with computers. Sometimes they turn out great. Sometimes they throw exceptions. Whatever happens, I have fun doing it!</md-card-content>
+    </md-card>
+    <md-card layout="row">
+      <div class="skills-title">Skills</div>
+      <div class="skills-list" layout="column" flex>
+        <skill ng-repeat="skill in vm.skills"></skill>
+      </div>
+    </md-card>
+    <md-card layout="row">
+      <div class="skills-title">Technical Competencies</div>
+      <div class="skills-list" layout="column" flex>
+        <skill ng-repeat="skill in vm.competencies"></skill>
+      </div>
+    </md-card>
+  </div>
+  </md-content>
 </div>
