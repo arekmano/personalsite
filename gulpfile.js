@@ -35,11 +35,11 @@ gulp.task('css', function() {
     .pipe(addsrc('bower_components/devicon/devicon.css'))
     .pipe(reverse({ objectMode: true }))
     .pipe(concat('style.css'))
-    .pipe(gulp.dest('app/assets/css'))
+    .pipe(gulp.dest('docs/assets/css'))
     .pipe(cssnano())
     .pipe(rename({ suffix: '.min' }))
     .pipe(header(banner, { package : package }))
-    .pipe(gulp.dest('app/assets/css'))
+    .pipe(gulp.dest('docs/assets/css'))
     .pipe(browserSync.reload({stream:true}));
 });
 
@@ -59,11 +59,11 @@ gulp.task('js',function(){
   ]).pipe(ngAnnotate())
     .pipe(concat('bundle.js'))
     .pipe(header(banner, { package : package }))
-    .pipe(gulp.dest('app/assets/js'))
+    .pipe(gulp.dest('docs/assets/js'))
     .pipe(uglify())
     .pipe(header(banner, { package : package }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('app/assets/js'))
+    .pipe(gulp.dest('docs/assets/js'))
     .pipe(browserSync.reload({stream:true, once: true}));
 });
 
@@ -76,7 +76,7 @@ gulp.task('jshint', function (){
 gulp.task('browser-sync', function() {
     browserSync.init(null, {
         server: {
-            baseDir: "app"
+            baseDir: "docs"
         }
     });
 });
