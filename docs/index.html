@@ -31,7 +31,7 @@
       <h1 class="title">Meet Arek Mano!</h1>
       </header>
     </div>
-    <span ng-controller="MenuController as vm">
+    <span ng-controller="MenuController as vm" ng-cloak>
       <md-toolbar hide-xs layout="row" layout-xs="column" layout-align-xs="center stretch" layout-align="center center" ng-cloak>
         <md-button ng-repeat="option in vm.menuOptions" ui-sref="{{option.link}}" ui-sref-active="md-raised">&lt;{{option.name}}/&gt;</md-button>
       </md-toolbar>
