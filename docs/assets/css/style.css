@@ -70,7 +70,11 @@ nav {
 
 body {
   margin: 0;
-  font-family: monospace; }
+  font-family: monospace;
+  background-color: #19334a; }
+
+html {
+  background-color: #19334a; }
 
 .container {
   position: absolute;
@@ -277,7 +281,8 @@ skill {
   text-align: left; }
 
 .title-header {
-  z-index: 2; }
+  z-index: 2;
+  color: white; }
 
 .me {
   z-index: 1;

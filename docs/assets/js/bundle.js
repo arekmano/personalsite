@@ -81875,42 +81875,6 @@ $templateCache.put('skill.html','<div layout="row">\r\n  <div class="skill" flex
 $templateCache.put('technology.html','');}]);
 'use strict';
 
-angular.module('PersonalApp').controller('AboutController', ["Skill", function(Skill){
-  this.skills = Skill.skills;
-  this.competencies = Skill.competencies;
-}]);
-
-'use strict';
-
-angular.module('PersonalApp').controller('ContactController', function(){
-
-});
-
-'use strict';
-
-angular.module('PersonalApp').controller('ProjectController', ["ProjectService", "Category", function(ProjectService, Category){
-  var vm = this;
-  vm.categoryOptions = Category.all;
-
-  vm.splitProjects = function(){
-    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
-    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length  + 1 ) / 2, ProjectService.projects.length);
-  };
-
-  vm.clickCategory = function(category){
-    angular.forEach(vm.categoryOptions, function(cat){
-      cat.selected = false;
-    });
-    category.selected = true;
-    ProjectService.refreshProjects(category);
-    vm.splitProjects();
-  };
-  ProjectService.refreshProjects(vm.categoryOptions.all);
-  vm.splitProjects();
-}]);
-
-'use strict';
-
 angular.module('PersonalApp').directive('card', function(){
   return {
     restrict: 'E',
@@ -81984,6 +81948,42 @@ angular.module('PersonalApp').directive('technology', function(){
     templateUrl: 'technology.html'
   };
 });
+
+'use strict';
+
+angular.module('PersonalApp').controller('AboutController', ["Skill", function(Skill){
+  this.skills = Skill.skills;
+  this.competencies = Skill.competencies;
+}]);
+
+'use strict';
+
+angular.module('PersonalApp').controller('ContactController', function(){
+
+});
+
+'use strict';
+
+angular.module('PersonalApp').controller('ProjectController', ["ProjectService", "Category", function(ProjectService, Category){
+  var vm = this;
+  vm.categoryOptions = Category.all;
+
+  vm.splitProjects = function(){
+    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
+    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length  + 1 ) / 2, ProjectService.projects.length);
+  };
+
+  vm.clickCategory = function(category){
+    angular.forEach(vm.categoryOptions, function(cat){
+      cat.selected = false;
+    });
+    category.selected = true;
+    ProjectService.refreshProjects(category);
+    vm.splitProjects();
+  };
+  ProjectService.refreshProjects(vm.categoryOptions.all);
+  vm.splitProjects();
+}]);
 
 'use strict';
 
