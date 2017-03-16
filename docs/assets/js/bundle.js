@@ -81875,6 +81875,76 @@ $templateCache.put('skill.html','<div layout="row">\r\n  <div class="skill" flex
 $templateCache.put('technology.html','');}]);
 'use strict';
 
+angular.module('PersonalApp').controller('AboutController', ["Skill", function(Skill){
+  this.skills = Skill.skills;
+  this.competencies = Skill.competencies;
+}]);
+
+'use strict';
+
+angular.module('PersonalApp').controller('ContactController', function(){
+
+});
+
+'use strict';
+
+angular.module('PersonalApp').controller('MenuController', ["$state", "$scope", function($state, $scope){
+  var vm = this;
+  vm.menuOptions = [
+    {
+      name: 'About',
+      link: 'about'
+    },
+    {
+      name: 'Projects',
+      link: 'projects'
+    },
+    {
+      name: 'Contact',
+      link: 'contact'
+    }
+  ];
+  vm.initOption = $state;
+  vm.openMenu = function($mdMenu, ev) {
+    $mdMenu.open(ev);
+  };
+  vm.setCurrent = function(option){
+    vm.current = option;
+  };
+  $scope.$watch('vm.initOption.current.name', function(newValue){
+    angular.forEach(vm.menuOptions, function(obj){
+      if (obj.link === newValue){
+        vm.current = obj;
+      }
+    });
+  });
+}]);
+
+'use strict';
+
+angular.module('PersonalApp').controller('ProjectController', ["ProjectService", "Category", function(ProjectService, Category){
+  var vm = this;
+  vm.categoryOptions = Category.all;
+
+  vm.splitProjects = function(){
+    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
+    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length  + 1 ) / 2, ProjectService.projects.length);
+  };
+
+  vm.clickCategory = function(category){
+    angular.forEach(vm.categoryOptions, function(cat){
+      cat.selected = false;
+    });
+    category.selected = true;
+    ProjectService.refreshProjects(category);
+    vm.splitProjects();
+  };
+  ProjectService.refreshProjects(vm.categoryOptions.all);
+  vm.splitProjects();
+}]);
+
+'use strict';
+
 angular.module('PersonalApp').directive('card', function(){
   return {
     restrict: 'E',
@@ -81925,7 +81995,7 @@ angular.module('PersonalApp').directive('skill', ["$timeout", function($timeout)
         width: '100%',
         height: '100%'
       },
-    }
+    };
     $timeout(function() {
       var circle = new ProgressBar.Line('#progress' + scope.skill.name, progressBarOptions);
       circle.animate(scope.skill.level);
@@ -81948,42 +82018,6 @@ angular.module('PersonalApp').directive('technology', function(){
     templateUrl: 'technology.html'
   };
 });
-
-'use strict';
-
-angular.module('PersonalApp').controller('AboutController', ["Skill", function(Skill){
-  this.skills = Skill.skills;
-  this.competencies = Skill.competencies;
-}]);
-
-'use strict';
-
-angular.module('PersonalApp').controller('ContactController', function(){
-
-});
-
-'use strict';
-
-angular.module('PersonalApp').controller('ProjectController', ["ProjectService", "Category", function(ProjectService, Category){
-  var vm = this;
-  vm.categoryOptions = Category.all;
-
-  vm.splitProjects = function(){
-    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
-    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length  + 1 ) / 2, ProjectService.projects.length);
-  };
-
-  vm.clickCategory = function(category){
-    angular.forEach(vm.categoryOptions, function(cat){
-      cat.selected = false;
-    });
-    category.selected = true;
-    ProjectService.refreshProjects(category);
-    vm.splitProjects();
-  };
-  ProjectService.refreshProjects(vm.categoryOptions.all);
-  vm.splitProjects();
-}]);
 
 'use strict';
 

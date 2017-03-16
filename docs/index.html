@@ -31,11 +31,27 @@
       <h1 class="title">Meet Arek Mano!</h1>
       </header>
     </div>
-    <md-toolbar layout="row" layout-align="center center" ng-cloak>
-      <md-button ui-sref="about" ui-sref-active="md-raised">&lt;About/&gt;</md-button>
-      <md-button ui-sref="projects" ui-sref-active="md-raised">&lt;Projects/&gt;</md-button>
-      <md-button ui-sref="contact" ui-sref-active="md-raised">&lt;Contact/&gt;</md-button>
-    </md-toolbar>
+    <span ng-controller="MenuController as vm">
+      <md-toolbar hide-xs layout="row" layout-xs="column" layout-align-xs="center stretch" layout-align="center center" ng-cloak>
+        <md-button ng-repeat="option in vm.menuOptions" ui-sref="{{option.link}}" ui-sref-active="md-raised">&lt;{{option.name}}/&gt;</md-button>
+      </md-toolbar>
+      <!--  -->
+      <md-toolbar show-xs hide>
+        <md-menu layout="column" layout-align="center stretch">
+          <md-button class="md-raised" ng-click="vm.openMenu($mdMenu, $event)">
+            {{vm.current.name}}
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item ng-repeat="option in vm.menuOptions" ui-sref-active="selected-button">
+              <md-button ui-sref="{{option.link}}" ng-click="vm.setCurrent(option)">
+                &lt;{{option.name}}/&gt;
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </md-toolbar>
+    </span>
+    <!--  -->
     <div class="no-flow">
       <md-content ui-view class="content">
       </md-content>

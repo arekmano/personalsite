@@ -7,6 +7,10 @@ $nav-background: opacify($navBarColor, 0.45);
   position: fixed;
   top: -($nav-height);
 }
+.selected-button {
+  background-color: #19334a;
+  color: white;
+}
 
 nav {
   width: 100%;

@@ -41,7 +41,7 @@ angular.module('PersonalApp').directive('skill', function($timeout){
         width: '100%',
         height: '100%'
       },
-    }
+    };
     $timeout(function() {
       var circle = new ProgressBar.Line('#progress' + scope.skill.name, progressBarOptions);
       circle.animate(scope.skill.level);
