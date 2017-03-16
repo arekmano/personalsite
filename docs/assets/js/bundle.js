@@ -81843,7 +81843,7 @@ angular.module('templates', []);
 angular.module(
   'PersonalApp',
   ['sticky', 'ui.router', 'ngMaterial', 'templates', 'ngAnimate']
-).config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
+).config(["$stateProvider", "$urlRouterProvider", "$mdThemingProvider", function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
   $stateProvider
     .state({
     name: 'about',
@@ -81865,10 +81865,32 @@ angular.module(
     templateUrl: 'projects.html'
   });
   $urlRouterProvider.otherwise('/');
+
+  $mdThemingProvider.definePalette('primaryPalette', {
+    '50': 'ffebee',
+    '100': 'ffcdd2',
+    '200': 'ef9a9a',
+    '300': 'e57373',
+    '400': 'ef5350',
+    '500': '415D75', // Changed
+    '600': 'e53935',
+    '700': 'd32f2f',
+    '800': 'c62828',
+    '900': 'b71c1c',
+    'A100': 'ff8a80',
+    'A200': 'ff5252',
+    'A400': 'ff1744',
+    'A700': 'd50000',
+    'contrastDefaultColor': 'light',
+    'contrastDarkColors': ['50', '100',
+     '200', '300', '400', 'A100'],
+  });
+  $mdThemingProvider.theme('default')
+    .primaryPalette('primaryPalette');
 }]);
 
 angular.module('templates').run(['$templateCache', function($templateCache) {$templateCache.put('about.html','<div>\r\n  <md-content layout="row">\r\n  <div layout="column" flex>\r\n    <md-card>\r\n      <md-card-title>\r\n        <md-card-title-text>\r\n          <span class="md-headline">About Me</span>\r\n        </md-card-title-text>\r\n      </md-card-title>\r\n      <md-card-content>I do things with computers. Sometimes they turn out great. Sometimes they throw exceptions. Whatever happens, I have fun doing it!</md-card-content>\r\n    </md-card>\r\n    <md-card layout="row">\r\n      <div class="skills-title">Skills</div>\r\n      <div class="skills-list" layout="column" flex>\r\n        <skill ng-repeat="skill in vm.skills"></skill>\r\n      </div>\r\n    </md-card>\r\n    <md-card layout="row">\r\n      <div class="skills-title">Technical Competencies</div>\r\n      <div class="skills-list" layout="column" flex>\r\n        <skill ng-repeat="skill in vm.competencies"></skill>\r\n      </div>\r\n    </md-card>\r\n  </div>\r\n  </md-content>\r\n</div>');
-$templateCache.put('card.html','<md-card>\r\n  <md-card-title><span class="md-headline">{{project.name}}</span></md-card-title>\r\n  <md-card-content layout="row">\r\n    <span>\r\n      <img src="{{project.imageURL || \'#\'}}" ng-if="project.imageURL" style="max-height: 300px;max-width: 200px;" alt="">\r\n    </span>\r\n    <span layout="column" class="project-description">\r\n      <div layout="column">\r\n       <h2 flex>Description:</h2>\r\n       <span flex>{{project.description}}</span>\r\n      </div>\r\n      <div layout="column">\r\n        <h2>Technologies:</h2>\r\n        <md-grid-list\r\n          md-cols="3" md-row-height="4:3">\r\n          <md-grid-tile  md-rowspan="1"\r\n               md-colspan="1"\r\n               md-colspan-sm="1"\r\n               md-colspan-xs="1"\r\n               ng-repeat="technology in project.technologies">\r\n              <i class="tech-icon" ng-class="technology.iconName"></i>\r\n            <md-grid-tile-footer class="tech-name" layout="row" layou-align="center center">\r\n              <div>{{technology.name}}</div>\r\n            </md-grid-tile-footer>\r\n          </md-grid-tile>\r\n        </md-grid-list>\r\n        </div>\r\n      <div layout="column">\r\n        <h2>Categories:</h2>\r\n        <md-chips ng-model="project.categories" readonly="true" removable="false">\r\n          <md-chip-template>{{$chip.name}}</md-chip-template>\r\n        </md-chips>\r\n      </div>\r\n    </span>\r\n</md-card-content>\r\n  <md-card-actions layout="row" layout-align="end center">\r\n    <md-button layout="row" layout-align="center center" ng-show="project.sourceURL" ng-href="{{project.sourceURL}}">\r\n      <span class="button-text">Source</span>\r\n      <i class="devicon-github-plain"></i>\r\n    </md-button>\r\n    <md-button class="md-primary md-raised" layout="row" layout-align="center center" ng-show="project.demoURL" ng-href="{{project.demoURL}}">\r\n      <span class="button-text">Demo</span>\r\n      <img src="assets/img/ic_open_in_new_black_24px.svg" alt="">\r\n    </md-button>\r\n  </md-card-actions>\r\n</md-card>');
+$templateCache.put('card.html','<md-card>\r\n  <md-card-title><span class="md-headline">{{project.name}}</span></md-card-title>\r\n  <md-card-content layout="row">\r\n    <span>\r\n      <img ng-src="{{project.imageURL || \'#\'}}" ng-if="project.imageURL" style="max-height: 300px;max-width: 200px;" alt="">\r\n    </span>\r\n    <span layout="column" class="project-description">\r\n      <div layout="column">\r\n       <h2 flex>Description:</h2>\r\n       <span flex>{{project.description}}</span>\r\n      </div>\r\n      <div layout="column">\r\n        <h2>Technologies:</h2>\r\n        <md-grid-list\r\n          md-cols="3" md-row-height="4:3">\r\n          <md-grid-tile  md-rowspan="1"\r\n               md-colspan="1"\r\n               md-colspan-sm="1"\r\n               md-colspan-xs="1"\r\n               ng-repeat="technology in project.technologies">\r\n              <i class="tech-icon" ng-class="technology.iconName"></i>\r\n            <md-grid-tile-footer class="tech-name" layout="row" layou-align="center center">\r\n              <div>{{technology.name}}</div>\r\n            </md-grid-tile-footer>\r\n          </md-grid-tile>\r\n        </md-grid-list>\r\n        </div>\r\n      <div layout="column">\r\n        <h2>Categories:</h2>\r\n        <md-chips ng-model="project.categories" readonly="true" removable="false">\r\n          <md-chip-template>{{$chip.name}}</md-chip-template>\r\n        </md-chips>\r\n      </div>\r\n    </span>\r\n</md-card-content>\r\n  <md-card-actions layout="row" layout-align="end center">\r\n    <md-button layout="row" layout-align="center center" ng-show="project.sourceURL" ng-href="{{project.sourceURL}}">\r\n      <span class="button-text">Source</span>\r\n      <i class="devicon-github-plain"></i>\r\n    </md-button>\r\n    <md-button class="md-primary md-raised" layout="row" layout-align="center center" ng-show="project.demoURL" ng-href="{{project.demoURL}}">\r\n      <span class="button-text">Demo</span>\r\n      <img src="assets/img/ic_open_in_new_black_24px.svg" alt="">\r\n    </md-button>\r\n  </md-card-actions>\r\n</md-card>');
 $templateCache.put('contact.html','<div>\r\n  <md-card>\r\n    <md-card-title>\r\n      <md-card-title-text>\r\n        <span class="md-headline">Contact</span>\r\n      </md-card-title-text>\r\n    </md-card-title>\r\n    <md-card-content>Under Construction!</md-card-content>\r\n  </md-card>\r\n</div>');
 $templateCache.put('projects.html','<div>\r\n  <div>\r\n    <md-button class="themed" ng-class="{\'md-raised md-primary\': category.selected}" ng-click="vm.clickCategory(category)" ng-repeat="category in vm.categoryOptions">{{category.name}}</md-button>\r\n  </div>\r\n  <div layout="row">\r\n    <div flex-xs flex-gt-xs="50" layout="column">\r\n      <card class="project-card" ng-repeat="project in vm.projects1"></card>\r\n    </div>\r\n    <div flex-xs flex-gt-xs="50" layout="column">\r\n      <card class="project-card" ng-repeat="project in vm.projects2"></card>\r\n    </div>\r\n  </div>\r\n</div>');
 $templateCache.put('skill.html','<div layout="row">\r\n  <div class="skill" flex="20">{{skill.name}}</div>\r\n  <div id="progress{{skill.name}}" flex></div>\r\n</div>');
@@ -82164,7 +82186,7 @@ angular.module('PersonalApp').factory('Skill', function(){
     {name: 'Coolness', level: 0.5},
     {name: 'Wat', level: 0.5},
 
-  ]
+  ];
   return {
     skills: skills,
     competencies: competencies

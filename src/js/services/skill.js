@@ -12,7 +12,7 @@ angular.module('PersonalApp').factory('Skill', function(){
     {name: 'Coolness', level: 0.5},
     {name: 'Wat', level: 0.5},
 
-  ]
+  ];
   return {
     skills: skills,
     competencies: competencies
