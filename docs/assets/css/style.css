@@ -1,18 +1,5 @@
-button.themed {
-  padding: 6px;
-  border-width: 1px;
-  background-color: white;
-  border-radius: 1px;
-  border-color: darkgray;
-  border-style: solid;
-  color: darkgray;
-  margin: 2px; }
-  button.themed.accent {
-    background-color: #20b795;
-    color: white; }
-  button.themed:hover {
-    background-color: #177d66;
-    color: white; }
+.md-button.categories {
+  color: rgba(255, 255, 255, 0.87); }
 
 .project-description {
   margin-left: 10px; }

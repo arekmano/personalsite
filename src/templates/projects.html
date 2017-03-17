@@ -1,8 +1,22 @@
 <div>
-  <div>
-    <md-button class="themed" ng-class="{'md-raised md-primary': category.selected}" ng-click="vm.clickCategory(category)" ng-repeat="category in vm.categoryOptions">{{category.name}}</md-button>
+  <div hide-xs layout="row">
+    <md-button class="categories" ng-class="{'md-raised md-primary': category.selected}" ng-click="vm.clickCategory(category)" ng-repeat="category in vm.categoryOptions">{{category.name}}</md-button>
   </div>
-  <div layout="row">
+  <div hide show-xs>
+    <md-menu layout="column" layout-align="center stretch">
+      <md-button class="md-raised" ng-click="vm.openMenu($mdMenu, $event)">
+        {{vm.selectedCategory.name}}
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item ng-repeat="category in vm.categoryOptions">
+          <md-button ng-click="vm.clickCategory(category)">
+            {{category.name}}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div>
+  <div layout-gt-md="row" layout="column">
     <div flex-xs flex-gt-xs="50" layout="column">
       <card class="project-card" ng-repeat="project in vm.projects1"></card>
     </div>
