@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PersonalApp').factory('ProjectService', function(Technology, Category){
+angular.module('PersonalApp').factory('Projects', function(Technology, Category){
   var visibleProjects = [];
   var projects = [
     {
@@ -20,6 +20,20 @@ angular.module('PersonalApp').factory('ProjectService', function(Technology, Cat
       imageURL: 'assets/img/personal-canary.png',
       demoURL: 'https://personal-canary.herokuapp.com',
       sourceURL: 'https://github.com/arekmano/personalCanary'
+    },
+    {
+      name: 'MCGA - Concordia Campus Guide',
+      description: 'Mobile Campus Guide Application makes Concordia University geographically accessible',
+      categories: [
+        Category.get('openSource')
+      ],
+      technologies: [
+        new Technology('android'),
+        new Technology('gradle'),
+        new Technology('java')
+      ],
+      imageURL: 'assets/img/mcga.png',
+      sourceURL: 'https://github.com/Taimoorrana1/MCGA'
     },
     {
       name: 'Crypto Message Box',
@@ -66,6 +80,16 @@ angular.module('PersonalApp').factory('ProjectService', function(Technology, Cat
       sourceURL: 'https://github.com/arekmano/ConcordiaCourseScraper'
     }
   ];
+
+  projects.sort(function(a,b){
+    if(a.name < b.name) {
+      return -1;
+    }
+    if(a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
 
   var refreshProjects = function(category){
     visibleProjects.length = 0;

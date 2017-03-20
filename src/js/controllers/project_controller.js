@@ -1,13 +1,21 @@
 'use strict';
 
-angular.module('PersonalApp').controller('ProjectController', function(ProjectService, Category){
+angular.module('PersonalApp').controller('ProjectController', function(Projects, Category){
   var vm = this;
   vm.categoryOptions = Category.all;
   vm.selectedCategory = Category.all.all;
 
   vm.splitProjects = function(){
-    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
-    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length  + 1 ) / 2, ProjectService.projects.length);
+    vm.projects1 = [];
+    vm.projects2 = [];
+    for (var i=0;i<Projects.projects.length;i++){
+      if ( (i+2)%2 === 0) {
+        vm.projects1.push(Projects.projects[i]);
+      }
+      else {
+        vm.projects2.push(Projects.projects[i]);
+      }
+    }
   };
 
   vm.openMenu = function($mdMenu, ev) {
@@ -20,9 +28,9 @@ angular.module('PersonalApp').controller('ProjectController', function(ProjectSe
     });
     category.selected = true;
     vm.selectedCategory = category;
-    ProjectService.refreshProjects(category);
+    Projects.refreshProjects(category);
     vm.splitProjects();
   };
-  ProjectService.refreshProjects(vm.selectedCategory);
+  Projects.refreshProjects(vm.selectedCategory);
   vm.splitProjects();
 });

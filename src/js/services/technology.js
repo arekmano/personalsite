@@ -45,6 +45,18 @@ angular.module('PersonalApp').factory('Technology', function(){
     mysql: {
       name: 'MySQL',
       iconName: 'devicon-mysql-plain'
+    },
+    android: {
+      name: 'Android',
+      iconName: 'devicon-android-plain'
+    },
+    gradle: {
+      name: 'Gradle',
+      iconName: 'devicon-gradle-plain'
+    },
+    java: {
+      name: 'Java',
+      iconName: 'devicon-java-plain'
     }
   };
 

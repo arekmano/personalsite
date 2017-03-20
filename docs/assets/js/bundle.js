@@ -81944,14 +81944,22 @@ angular.module('PersonalApp').controller('MenuController', ["$state", "$scope", 
 
 'use strict';
 
-angular.module('PersonalApp').controller('ProjectController', ["ProjectService", "Category", function(ProjectService, Category){
+angular.module('PersonalApp').controller('ProjectController', ["Projects", "Category", function(Projects, Category){
   var vm = this;
   vm.categoryOptions = Category.all;
   vm.selectedCategory = Category.all.all;
 
   vm.splitProjects = function(){
-    vm.projects1 = ProjectService.projects.slice(0, (ProjectService.projects.length  + 1 ) / 2);
-    vm.projects2 = ProjectService.projects.slice((ProjectService.projects.length  + 1 ) / 2, ProjectService.projects.length);
+    vm.projects1 = [];
+    vm.projects2 = [];
+    for (var i=0;i<Projects.projects.length;i++){
+      if ( (i+2)%2 === 0) {
+        vm.projects1.push(Projects.projects[i]);
+      }
+      else {
+        vm.projects2.push(Projects.projects[i]);
+      }
+    }
   };
 
   vm.openMenu = function($mdMenu, ev) {
@@ -81964,10 +81972,10 @@ angular.module('PersonalApp').controller('ProjectController', ["ProjectService",
     });
     category.selected = true;
     vm.selectedCategory = category;
-    ProjectService.refreshProjects(category);
+    Projects.refreshProjects(category);
     vm.splitProjects();
   };
-  ProjectService.refreshProjects(vm.selectedCategory);
+  Projects.refreshProjects(vm.selectedCategory);
   vm.splitProjects();
 }]);
 
@@ -82094,7 +82102,7 @@ angular.module('PersonalApp').factory('Category', function(){
 
 'use strict';
 
-angular.module('PersonalApp').factory('ProjectService', ["Technology", "Category", function(Technology, Category){
+angular.module('PersonalApp').factory('Projects', ["Technology", "Category", function(Technology, Category){
   var visibleProjects = [];
   var projects = [
     {
@@ -82114,6 +82122,20 @@ angular.module('PersonalApp').factory('ProjectService', ["Technology", "Category
       imageURL: 'assets/img/personal-canary.png',
       demoURL: 'https://personal-canary.herokuapp.com',
       sourceURL: 'https://github.com/arekmano/personalCanary'
+    },
+    {
+      name: 'MCGA - Concordia Campus Guide',
+      description: 'Mobile Campus Guide Application makes Concordia University geographically accessible',
+      categories: [
+        Category.get('openSource')
+      ],
+      technologies: [
+        new Technology('android'),
+        new Technology('gradle'),
+        new Technology('java')
+      ],
+      imageURL: 'assets/img/mcga.png',
+      sourceURL: 'https://github.com/Taimoorrana1/MCGA'
     },
     {
       name: 'Crypto Message Box',
@@ -82160,6 +82182,16 @@ angular.module('PersonalApp').factory('ProjectService', ["Technology", "Category
       sourceURL: 'https://github.com/arekmano/ConcordiaCourseScraper'
     }
   ];
+
+  projects.sort(function(a,b){
+    if(a.name < b.name) {
+      return -1;
+    }
+    if(a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
 
   var refreshProjects = function(category){
     visibleProjects.length = 0;
@@ -82246,6 +82278,18 @@ angular.module('PersonalApp').factory('Technology', function(){
     mysql: {
       name: 'MySQL',
       iconName: 'devicon-mysql-plain'
+    },
+    android: {
+      name: 'Android',
+      iconName: 'devicon-android-plain'
+    },
+    gradle: {
+      name: 'Gradle',
+      iconName: 'devicon-gradle-plain'
+    },
+    java: {
+      name: 'Java',
+      iconName: 'devicon-java-plain'
     }
   };
 
