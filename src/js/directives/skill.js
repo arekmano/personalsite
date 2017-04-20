@@ -14,10 +14,6 @@ angular.module('PersonalApp').directive('skill', function($timeout){
         style: {
           color: '#eee',
           position: 'absolute',
-          left: '50%',
-          top: '-25px',
-          padding: 0,
-          margin: 0,
           transform: {
               prefix: true,
               value: 'translate(-50%, -50%)'
