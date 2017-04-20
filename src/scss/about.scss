@@ -5,18 +5,20 @@
   padding: 20px;
   margin: 5px;
 }
-.skills-list {
-  padding: 20px;
+.skill-box {
+  margin: 10px;
+  padding: 10px;
+  border-width: 1px;
+  border-color: #adadad;
+  border-style: solid;
 }
 .skill {
-  margin-right: 2em;
-}
-skill {
-  margin: 5px;
+  padding: 10px;
 }
 .progressbar {
   position: relative;
   display: inline-block;
+  padding: 10px;
   .progressbar-text {
     visibility: hidden;
     background-color: black;

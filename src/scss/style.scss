@@ -46,9 +46,12 @@ $darkColor: #1D1F20;
 .no-flow {
   overflow-x: hidden;
 }
-
 [ng-cloak].splash {
-    display: block !important;
+  display: block !important;
+}
+[ng-cloak].body {
+  background-color: rgb(25, 51, 74);
+  display: block !important;
 }
 .splash {
     display: none;

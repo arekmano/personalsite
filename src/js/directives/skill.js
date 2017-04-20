@@ -24,7 +24,7 @@ angular.module('PersonalApp').directive('skill', function($timeout){
           }
         },
       },
-      trailWidth: 1,
+      trailWidth: 2,
       strokeWidth: 2,
       step: function(state, bar) {
         var val = bar.value() * 100;

@@ -30349,6 +30349,9 @@ body {
 .head {
   background-color: #19334a; }
 
+.splash {
+  background-color: #19334a; }
+
 .container {
   position: absolute;
   width: 40%;
@@ -30534,18 +30537,20 @@ body {
   padding: 20px;
   margin: 5px; }
 
-.skills-list {
-  padding: 20px; }
+.skill-box {
+  margin: 10px;
+  padding: 10px;
+  border-width: 1px;
+  border-color: #adadad;
+  border-style: solid; }
 
 .skill {
-  margin-right: 2em; }
-
-skill {
-  margin: 5px; }
+  padding: 10px; }
 
 .progressbar {
   position: relative;
-  display: inline-block; }
+  display: inline-block;
+  padding: 10px; }
   .progressbar .progressbar-text {
     visibility: hidden;
     background-color: black;
@@ -30617,6 +30622,10 @@ skill {
   overflow-x: hidden; }
 
 [ng-cloak].splash {
+  display: block !important; }
+
+[ng-cloak].body {
+  background-color: #19334a;
   display: block !important; }
 
 .splash {
