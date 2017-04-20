@@ -12,10 +12,10 @@ angular.module('PersonalApp').directive('skill', function($timeout){
         value: '',
         alignToBottom: false,
         style: {
-          color: '#f00',
+          color: '#eee',
           position: 'absolute',
-          left: '5%',
-          top: '50%',
+          left: '50%',
+          top: '-25px',
           padding: 0,
           margin: 0,
           transform: {
@@ -24,18 +24,12 @@ angular.module('PersonalApp').directive('skill', function($timeout){
           }
         },
       },
-      trailWidth: 1.4,
-      strokeWidth: 3,
+      trailWidth: 1,
+      strokeWidth: 2,
       step: function(state, bar) {
         var val = bar.value() * 100;
         bar.setText(Math.round(val) + ' %');
-        if (val < 5){
-          val = 5;
-        } else if (val > 95){
-          val = 95;
-        }
         bar.path.setAttribute('stroke', state.color);
-        bar.text.style.left = Math.round(val) + '%';
       },
       svgStyle: {
         width: '100%',
