@@ -57,6 +57,18 @@ angular.module('PersonalApp').factory('Technology', function(){
     java: {
       name: 'Java',
       iconName: 'devicon-java-plain'
+    },
+    python: {
+      name: 'Python',
+      iconName: 'devicon-python-plain'
+    },
+    docker: {
+      name: 'Docker',
+      iconName: 'devicon-docker-plain'
+    },
+    vuejs: {
+      name: 'VueJS',
+      iconName: 'devicon-vuejs-plain'
     }
   };
 

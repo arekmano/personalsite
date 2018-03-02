@@ -5,7 +5,7 @@ angular.module('PersonalApp').factory('Category', function(){
     all: {
       name: 'All',
       selected: true,
-      categories: ['openSource', 'privacy', 'library', 'security', 'restApi']
+      categories: ['openSource', 'privacy', 'library', 'security', 'restApi', 'artificialIntelligence']
     },
     openSource: {
       name: 'Open Source',
@@ -31,6 +31,11 @@ angular.module('PersonalApp').factory('Category', function(){
       name: 'Library',
       selected: false,
       categories: ['library']
+    },
+    artificialIntelligence: {
+      name: 'Artificial Intelligence',
+      selected: false,
+      categories: ['artificialIntelligence']
     }
   };
 

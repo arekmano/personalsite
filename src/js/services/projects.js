@@ -22,6 +22,22 @@ angular.module('PersonalApp').factory('Projects', function(Technology, Category)
       sourceURL: 'https://github.com/arekmano/personalCanary'
     },
     {
+      name: 'ProceZeus',
+      description: 'A web chat bot that aims to facilitate access to judicial proceedings involving tenant/landlord disputes',
+      categories: [
+       Category.get('openSource'),
+       Category.get('artificialIntelligence')
+      ],
+      technologies: [
+        new Technology('python'),
+        new Technology('docker'),
+        new Technology('vuejs')
+      ],
+      imageURL: 'assets/img/procezeus.png',
+      demoURL: 'https://capstone.cyberjustice.ca',
+      sourceURL: 'https://github.com/Cyberjusticelab/JusticeAI/'
+    },
+    {
       name: 'MCGA - Concordia Campus Guide',
       description: 'Mobile Campus Guide Application makes Concordia University geographically accessible',
       categories: [
