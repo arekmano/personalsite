@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ReactComment from './ReactComment';
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
         <p>
           How did you end up here?
         </p>
+        <ReactComment/>
       </header>
     </div>
   );
