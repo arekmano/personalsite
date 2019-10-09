@@ -1,34 +1,36 @@
 {
-  "name": "ArekMano",
-  "title": "My Personal Site",
-  "author": "Arek Mano",
-  "url": "https://arekmano",
-  "version": "0.0.1",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/arekmano/arekmano.git"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.11.1",
-    "gulp": "^3.9.0",
-    "gulp-angular-templatecache": "^2.0.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssnano": "^2.1.0",
-    "gulp-header": "^1.7.1",
-    "gulp-jshint": "^2.0.0",
-    "gulp-ng-annotate": "^2.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.1",
-    "gulp-uglify": "^1.5.1",
-    "jshint": "^2.8.0",
-    "main-bower-files": "^2.13.1",
-    "reversible": "^0.1.0"
-  },
+  "name": "arekmano",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "express": "^4.15.2",
-    "gulp-add-src": "^0.2.0",
-    "winston": "^2.3.1"
+    "@types/jest": "24.0.18",
+    "@types/node": "12.7.12",
+    "@types/react": "16.9.5",
+    "@types/react-dom": "16.9.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.2.0",
+    "typescript": "3.6.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
